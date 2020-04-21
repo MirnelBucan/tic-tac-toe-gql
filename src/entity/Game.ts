@@ -1,7 +1,8 @@
 import {
   Column,
   CreateDateColumn,
-  Entity, JoinTable,
+  Entity,
+  JoinTable,
   ManyToMany,
   OneToMany,
   PrimaryGeneratedColumn,
@@ -43,7 +44,7 @@ export class Game {
   @JoinTable()
   players: User[];
 
-  @Field(()=> GameMove, {nullable: true})
-  @OneToMany(() => GameMove, gameMove => gameMove.game ,{ cascade: true})
+  @Field(() => GameMove, {nullable: true})
+  @OneToMany(() => GameMove, gameMove => gameMove.game, {cascade: true})
   gameMoves: GameMove[]
 }

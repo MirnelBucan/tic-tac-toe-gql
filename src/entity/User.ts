@@ -1,11 +1,4 @@
-import {
-  Column,
-  CreateDateColumn,
-  Entity,
-  ManyToMany,
-  PrimaryGeneratedColumn,
-  UpdateDateColumn
-} from "typeorm";
+import {Column, CreateDateColumn, Entity, ManyToMany, PrimaryGeneratedColumn, UpdateDateColumn} from "typeorm";
 import {Game} from "./Game";
 import {Field, ID, ObjectType} from "type-graphql";
 
@@ -26,7 +19,7 @@ export class User {
   @UpdateDateColumn({select: false})
   updateAt: string;
 
-  @Field(()=> Game, {nullable: true})
+  @Field(() => Game, {nullable: true})
   @ManyToMany(() => Game, game => game.players)
   games: Game[];
 }

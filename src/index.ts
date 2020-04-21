@@ -28,7 +28,7 @@ const main = async () => {
 
   const apolloServer = new ApolloServer({
     schema,
-    playground: true,
+    playground: process.env.NODE_ENV !== 'production',
     introspection: true,
     context: ({req, connection}): IContext => {
       if (connection) {

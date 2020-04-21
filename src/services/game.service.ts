@@ -10,7 +10,6 @@ import {_formatCondition} from "../utils/formatDbCondition";
 
 @Service()
 export class GameService {
-
   @InjectRepository(Game) private readonly gameRepo: Repository<Game>;
   @InjectRepository(User) private readonly userRepo: Repository<User>;
   @InjectRepository(GameMove) private readonly gameMoveRepo: Repository<GameMove>;
@@ -23,10 +22,8 @@ export class GameService {
     return this.gameRepo.save(game)
   }
 
-  //@ts-ignore
   async getAll({status, type, first, skip}: GamesSearchInput): Promise<Game[]> {
     const where = _formatCondition({status, type});
-    console.log(where);
     return this.gameRepo.find({where, skip, take: first, relations: ['players', 'gameMoves']});
   }
 
@@ -57,13 +54,11 @@ export class GameService {
       const user = game.players.find(gamePlayer => gamePlayer.id === player);
       currPlayerName = user!.name;
     }
-
     this._checkGameStatus(game.status)
 
     if (!this._isPlayersTurn(currPlayerName, game.gameMoves)) {
       throw new UserInputError('Not valid turn!');
     }
-
     if (this._verifyMove(col, row, game.gameMoves)) {
       throw new UserInputError(`Invalid move (${row}, ${col})!`)
     }
@@ -124,8 +119,6 @@ export class GameService {
     let arr = [['', '', ''], ['', '', ''], ['', '', '']];
     let symbol = 'X';
     gameMoves.forEach((item) => {
-      console.log(item)
-      console.log(symbol)
       arr[item.col][item.row] = symbol;
       symbol = symbol === 'X' ? 'O' : 'X';
     })
@@ -138,7 +131,6 @@ export class GameService {
 
   private _checkWinner(gameMoves: GameMove[]): boolean {
     const board = this._generateBoard(gameMoves);
-    console.log(board);
     //check diagonal
     if (board[0][0] === board[1][1] && board[1][1] === board[2][2] && board[0][0] !== '') {
       return true;

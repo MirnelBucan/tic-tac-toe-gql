@@ -13,6 +13,5 @@ export const authChecker: AuthChecker<IContext> = async (
 };
 
 export const generateToken = (tokenInfo: ITokenInfo): string => {
-  console.log('TF',tokenInfo)
   return jwt.sign(tokenInfo, process.env.APP_SECRET || 'some_really_cool_secret_:D');
 }

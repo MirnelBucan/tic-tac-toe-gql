@@ -7,7 +7,6 @@ class Move {
 
   @Field()
   row: number
-
 }
 
 @ObjectType()
@@ -33,5 +32,4 @@ export interface gameHistory {
     col: number;
     row: number;
   }
-
 }

@@ -29,6 +29,4 @@ export class UserService {
   async getByName(userName: string): Promise<User> {
     return this.userRepo.findOneOrFail({where: userName, relations: ['games']});
   }
-
-
 }
