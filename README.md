@@ -11,7 +11,7 @@ Required to have `node.js >= 10.x`.
 
 First clone the repository:
 ```
-git clone https://github.com/MirnelBucan/tic-tac-toe-gql-server.git
+git clone https://github.com/MirnelBucan/tic-tac-toe-gql.git
 ```
 Next install node_modules, run `npm install`.
 Project is ready for usage now.
