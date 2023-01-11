@@ -41,7 +41,7 @@
       "@types/express-jwt": "0.0.42",
       "@types/graphql": "^14.5.0",
       "@types/node": "^8.0.29",
-      "class-validator": "^0.12.1",
+      "class-validator": "^0.14.0",
       "rimraf": "^3.0.2",
       "ts-node": "3.3.0",
       "ts-node-dev": "^1.0.0-pre.44",
